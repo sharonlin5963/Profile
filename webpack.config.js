@@ -1,13 +1,13 @@
-const path = require('path'); // Node.js 核心模块，用于操作文件路径
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path') // Node.js 核心模块，用于操作文件路径
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.[hash].bundle.js', // [hash]避免快取 每次打包改檔名不一樣
+    filename: 'main.[hash].bundle.js' // [hash]避免快取 每次打包改檔名不一樣
     // assetModuleFilename: 'images/[hash][ext][query]'
   },
   resolve: {
@@ -28,8 +28,8 @@ module.exports = {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader"
-        ],
+          'css-loader'
+        ]
       },
       {
         test: /\.s[ac]ss$/i,
@@ -37,17 +37,17 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 plugins: [
                   'postcss-preset-env'
-                ],
+                ]
               }
             }
           },
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /\.m?js$/,
@@ -62,8 +62,8 @@ module.exports = {
         generator: {
           filename: 'images/[hash][ext][query]' // 局部指定输出位置
         }
-      },
-    ],
+      }
+    ]
   },
   devtool: 'source-map', // 方便debug
   plugins: [
@@ -76,6 +76,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'style.[hash].css'
     }),
-    new CleanWebpackPlugin(),
-  ],
-};
+    new CleanWebpackPlugin()
+  ]
+}
