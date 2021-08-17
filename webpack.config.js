@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/js/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.[hash].bundle.js' // [hash]避免快取 每次打包改檔名不一樣

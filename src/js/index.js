@@ -1,5 +1,3 @@
-import '@/assets/scss/all.scss'
-
 window.onload = function () {
   function addClass (dom, className) {
     dom.classList.add(className)
