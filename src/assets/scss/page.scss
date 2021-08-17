@@ -1,5 +1,22 @@
-#home{
+#home {
   height: 100vh;
+  .webCase {
+    @include center;
+    width: 90%;
+    max-width: 1080px;
+    height: 700px;
+    border-radius: 30px;
+    border: 4px solid $text;
+    &::after {
+      content: '';
+      @include center(0);
+      border: 4px solid $text;
+      border-radius: 50px;
+      width: 95%;
+      height: 50px;
+      margin-top: 60px;
+    }
+  }
 }
 
 #about {
@@ -154,7 +171,7 @@
       top: 100px;
     }
     & > div {
-      background-color: $primary;
+      // background-color: $primary;
       position: relative;
       top: 0;
       opacity: 1;
@@ -162,7 +179,7 @@
       display: flex;
       align-items: center;
       margin: 80px 0;
-      box-shadow: 0 0 15px rgba($text, .4);
+      // box-shadow: 0 0 15px rgba($text, .4);
       padding: 50px 5%;
       border-radius: 10px;
     }
