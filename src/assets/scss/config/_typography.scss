@@ -1,0 +1,20 @@
+$base-font-size: 16px;
+$font-size-pixel: $base-font-size / 16;
+$base-line-height: 1.5;
+// $font-3xl: $font-size-pixel * 35;
+// $font-xxl: $font-size-pixel * 33;
+// $font-xl: $font-size-pixel * 23;
+// $font-l: $font-size-pixel * 20;
+// $font-m: $font-size-pixel * 17;
+// $font-s: $font-size-pixel * 14;
+// $font-xs: $font-size-pixel * 10;
+//font
+//$font-title: Helvetica Neue, Regular;
+//$font-Neue: Helvetica Neue, Regular;
+//$font-times: Times, Regular;
+body {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    letter-spacing: 1px;
+    font-family: 'Nunito Sans', sans-serif;
+}

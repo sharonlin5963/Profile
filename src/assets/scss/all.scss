@@ -1,0 +1,9 @@
+// config
+@import './config/variables';
+@import './config/reset';
+@import './config/reboot';
+@import './config/typography';
+
+h1 {
+  color: $primary;
+}

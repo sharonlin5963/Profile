@@ -3,10 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const modeEnv = process.env.NODE_ENV === 'production' ? 'production' : 'development'
-
 module.exports = {
-  mode: modeEnv,
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -35,6 +32,24 @@ module.exports = {
         ],
       },
       {
+        test: /\.s[ac]ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'postcss-preset-env'
+                ],
+              }
+            }
+          },
+          'sass-loader',
+        ],
+      },
+      {
         test: /\.m?js$/,
         exclude: /(node_modules)/,
         use: {
@@ -59,7 +74,7 @@ module.exports = {
       }
     ),
     new MiniCssExtractPlugin({
-      filename: 'main.[hash].css'
+      filename: 'style.[hash].css'
     }),
     new CleanWebpackPlugin(),
   ],

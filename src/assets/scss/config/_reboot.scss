@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  // overflow-x: hidden;
+  background-color: $backend;
+  // color: $backendGray;
+}
+
+a {
+  text-decoration: none;
+  // color: $backendGray;
+  &:hover {
+      // color: $cyan;
+      text-decoration: none;
+  }
+}
+
+input:focus {
+  outline: none;
+}
