@@ -20,10 +20,10 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.html$/i,
-      //   loader: 'html-loader',
-      // },
+      {
+        test: /\.html$/,
+        loader: 'html-withimg-loader' // 編譯<img>
+      },
       {
         test: /\.css$/i,
         use: [
