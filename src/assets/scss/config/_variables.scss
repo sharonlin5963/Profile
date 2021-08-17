@@ -1,6 +1,14 @@
 // color
-$backend: #FBFEF9;
-$text: #191923;
+$backend: #191923;
+$text: #FBFEF9;
 $primary: #FFA047;
+// $backend: #FBFEF9;
+// $text: #191923;
+// $primary: #869BD5;
 
-// @mixin () {}
+@mixin center ($align: 50, $justify: 50) {
+  position: absolute;
+  top: $align * 1%;
+  left: $justify * 1%;
+  transform: translate(-$justify * 1%, -$align * 1%);
+}

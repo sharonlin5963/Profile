@@ -8,7 +8,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.[hash].bundle.js' // [hash]避免快取 每次打包改檔名不一樣
-    // assetModuleFilename: 'images/[hash][ext][query]'
   },
   resolve: {
     alias: { // 別名設置
@@ -21,8 +20,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
-        loader: 'html-withimg-loader' // 編譯<img>
+        test: /\.html$/i,
+        loader: 'html-loader'
       },
       {
         test: /\.css$/i,
@@ -57,10 +56,17 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpg|gif)$/i,
+        test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[hash][ext][query]' // 局部指定输出位置
+        }
+      },
+      {
+        test: /\.(mov)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'media/[hash][ext][query]' // 局部指定输出位置
         }
       }
     ]

@@ -24,7 +24,6 @@
     "eslint-plugin-promise": "^5.1.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
-    "html-withimg-loader": "^0.1.16",
     "mini-css-extract-plugin": "^2.2.0",
     "postcss": "^8.3.6",
     "postcss-loader": "^6.1.1",

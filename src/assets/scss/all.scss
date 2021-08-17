@@ -4,6 +4,8 @@
 @import './config/reboot';
 @import './config/typography';
 
+@import 'page.scss';
+
 h1 {
   color: $primary;
 }
