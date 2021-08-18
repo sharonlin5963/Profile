@@ -7,7 +7,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
-scene.background = new THREE.Color(0xfff1cc)
+scene.background = new THREE.Color(0x191923)
 
 // Objects
 // ? 球體

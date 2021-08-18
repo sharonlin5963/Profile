@@ -44,13 +44,23 @@ window.onload = function () {
 
   // scroll event
   window.addEventListener('scroll', function (e) {
-    const about = document.querySelector('#about')
+    const scrolled = window.pageYOffset
+
+    const scale = scrolled * 0.05
+    // home
+    const home = document.querySelector('#home')
+    if (scale === 0) home.style.transform = 'scale(1)'
+    if (scale > 1 && scale < 8) {
+      home.style.transform = `scale(${scale})`
+    }
+
+    // about me文字左右移動
     const scrollRight = document.querySelectorAll('.scroll-right')
     const scrollLeft = document.querySelectorAll('.scroll-left')
-    const scrolled = window.pageYOffset
+
     const rateX = scrolled * 0.5 - 100
     const rateY = scrolled * 0.2 - 100
-    // about me文字左右移動
+
     scrollRight.forEach(item => {
       item.style.transform = `translate(${rateX}px, ${rateY}px)`
     })
@@ -72,9 +82,16 @@ window.onload = function () {
       removeClass(line, 'extend')
     }
 
+    const project = document.querySelector('#project')
+    const projectTitle = document.querySelector('#project .title')
+    if (scrolled >= project.offsetTop - 500) {
+      addClass(projectTitle, 'fade-in')
+    } else if (scrolled < project.offsetTop) {
+      removeClass(projectTitle, 'fade-in')
+    }
+
     // project 淡入動畫
     function showAnimate (domName) {
-      const project = document.querySelector('#project')
       const dom = document.querySelector(`#${domName}`)
       const offsetTop = project.offsetTop + dom.offsetTop - 600
       if (scrolled >= offsetTop) {
