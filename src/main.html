@@ -11,11 +11,49 @@
 </head>
 <body>
   <main>
+    <header>
+      <div class="menu">
+        <a href="#home">
+          <h4 class="chinese">首頁</h4>
+          <h4 class="english">HOME</h4>
+        </a>
+        <a href="#about">
+          <h4 class="chinese">關於我</h4>
+          <h4 class="english">ABOUT ME</h4>
+        </a>
+        <a href="#experience">
+          <h4 class="chinese">經歷</h4>
+          <h4 class="english">EXPERIENCE</h4>
+        </a>
+        <a href="#project">
+          <h4 class="chinese">作品</h4>
+          <h4 class="english">SIDE PROJECTS</h4>
+        </a>
+        <a href="#contact">
+          <h4 class="chinese">聯絡我</h4>
+          <h4 class="english">CONTACT ME</h4>
+        </a>
+      </div>
+      <a class="github" target="_blank" href="https://github.com/sharonlin5963/Profile">
+        <img src="./assets/images/github-logo-face-light.svg" alt="github-logo">
+      </a>
+    </header>
     <section id="home">
-      <canvas class="webgl"></canvas>
-      <div class="webCase">
-        <div class="searchBar">
-          <h3>ＨＥＬＬＯ！</h3>
+      <div>
+        <canvas class="webgl"></canvas>
+        <div id="webCase" class="webCase">
+          <div class="header">
+            <div class="buttons">
+              <div class="button"></div>
+              <div class="button"></div>
+              <div class="button"></div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="searchBar">
+              <h3>ＨＥＬＬＯ！</h3>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -35,7 +73,7 @@
         喜歡嘗試製作不同風格的網站，樂於學習新知識使用新技術。</p>
       </div>
     </section>
-    <section id="experience">
+    <section id="experience" class="sticky">
       <div id="work-title" class="title">
         <h2>Experience</h2>
         <h2 class="text-stroke">Experience</h2>
@@ -110,14 +148,15 @@
         </div>
       </div>
     </section>
-    <section id="contact">
+    <footer id="contact">
       <a href="mailto:sharonlin5963@gmail.com" type="email">
         <img class="charactor" src="./assets/images/charactor.svg" alt="charactor">
         <h2 class="title">Contact me !</h2>
-        <p>ⓒ 2021 Created by Sharon Lin .</p>
+        <p class="email">sharonlin5963@gmail.com</p>
         <img class="plane" src="./assets/images/paper-plane.svg" alt="paper-plane">
       </a>
-    </section>
+      <p>ⓒ 2021 Created by Sharon Lin .</p>
+    </footer>
   </main>
 </body>
 </html>

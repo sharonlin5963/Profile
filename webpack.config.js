@@ -15,7 +15,10 @@ module.exports = {
     }
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist') // server在哪執行
+    contentBase: path.join(__dirname, 'dist'), // server在哪執行
+    port: 8080,
+    compress: true,
+    open: true
   },
   module: {
     rules: [

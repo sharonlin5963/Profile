@@ -1,60 +1,63 @@
 import * as THREE from 'three'
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'dat.gui'
+// import * as dat from 'dat.gui'
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
-scene.background = new THREE.Color(0x191923)
+scene.background = new THREE.Color(0x211945)
 
 // Objects
 // ? 球體
 const sphereGeometryR4 = new THREE.SphereGeometry(4, 32, 32)
-const sphereGeometryR3 = new THREE.SphereGeometry(3, 32, 32)
+const sphereGeometryR16 = new THREE.SphereGeometry(16, 32, 32)
+const sphereGeometryR10 = new THREE.SphereGeometry(10, 32, 32)
 // ? 甜甜圈
-const torusGeometry = new THREE.TorusGeometry(2, 0.5, 16, 100)
-// ? 圓柱
-const cylinderGeometry = new THREE.CylinderGeometry(2, 2, 0.5, 32)
-const lineGeometry = new THREE.CylinderGeometry(0.3, 0.3, 8, 32)
+const torusGeometryThinR25 = new THREE.TorusGeometry(25, 0.5, 16, 100)
+const torusGeometryThinR20 = new THREE.TorusGeometry(20, 0.5, 16, 100)
+const torusGeometryThickR20 = new THREE.TorusGeometry(20, 3, 16, 100)
+const torusGeometryThickR25 = new THREE.TorusGeometry(25, 4, 16, 100)
 
 // Materials
 
-const pinkMaterial = new THREE.MeshLambertMaterial()
-pinkMaterial.color = new THREE.Color(0xef90c2)
+const pinkMaterial = new THREE.MeshPhongMaterial()
+pinkMaterial.color = new THREE.Color(0xa55ce6)
+pinkMaterial.shininess = 80
+const blueMaterial = new THREE.MeshPhongMaterial()
+blueMaterial.color = new THREE.Color(0xb7baf7)
+blueMaterial.flatShading = true
 
 // Mesh
-const deg = 3.1415 / 180
-const sphereRight = new THREE.Mesh(sphereGeometryR4, pinkMaterial)
-const sphereLeft = new THREE.Mesh(sphereGeometryR3, pinkMaterial)
-const torus = new THREE.Mesh(torusGeometry, pinkMaterial)
-const cylinder = new THREE.Mesh(cylinderGeometry, pinkMaterial)
-const line = new THREE.Mesh(lineGeometry, pinkMaterial)
-sphereRight.position.x = 20
-sphereRight.position.y = 10
-sphereLeft.position.x = -10
-torus.position.x = -15
-torus.position.y = 10
-torus.rotation.x = 30 * deg
-torus.rotation.y = -20 * deg
-cylinder.position.x = 25
-cylinder.rotation.x = 90 * deg
-cylinder.rotation.z = 30 * deg
-line.position.x = 10
-line.position.y = -10
-line.rotation.z = -60 * deg
-scene.add(sphereRight)
-scene.add(sphereLeft)
-scene.add(torus)
-scene.add(cylinder)
-scene.add(line)
+// const deg = 3.1415 / 180
+const sphereLowerRight = new THREE.Mesh(sphereGeometryR4, pinkMaterial)
+const sphereMiddle = new THREE.Mesh(sphereGeometryR16, blueMaterial)
+const torusUpperRight = new THREE.Mesh(torusGeometryThinR25, pinkMaterial)
+const torusLowerLeft = new THREE.Mesh(torusGeometryThinR20, pinkMaterial)
+const torusUpperLeft = new THREE.Mesh(torusGeometryThickR20, pinkMaterial)
+const torusLowerRight = new THREE.Mesh(torusGeometryThickR25, pinkMaterial)
+const sphereUpperRight = new THREE.Mesh(sphereGeometryR10, pinkMaterial)
+
+scene.add(sphereLowerRight)
+scene.add(sphereMiddle)
+scene.add(torusUpperRight)
+scene.add(torusLowerLeft)
+scene.add(torusUpperLeft)
+scene.add(torusLowerRight)
+scene.add(sphereUpperRight)
 
 // Lights
 const light = new THREE.AmbientLight(0x828282) // soft white light
 scene.add(light)
 const pointLight = new THREE.PointLight(0xffffff, 1, 100)
 scene.add(pointLight)
+const pointLightGreen = new THREE.PointLight(0x00f080, 1, 100)
+scene.add(pointLightGreen)
+pointLightGreen.position.set(10, -15, 5)
+const pointLightOrange = new THREE.PointLight(0xff6a00, 1.5, 100)
+scene.add(pointLightOrange)
+pointLightOrange.position.set(-30, 20, 0)
 
 /**
  * Sizes
@@ -77,6 +80,17 @@ window.addEventListener('resize', () => {
   renderer.setSize(sizes.width, sizes.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
+
+// position
+const windowWidth = (sizes.width >= 1440) ? 1440 : sizes.width
+const percent = windowWidth / 1440
+sphereLowerRight.position.set(28 * percent, -18 * percent, 2 * percent)
+sphereMiddle.position.set(-10 * percent, 0 * percent, -10 * percent)
+sphereUpperRight.position.set(30 * percent, 27 * percent, -5 * percent)
+torusUpperRight.position.set(35 * percent, 15 * percent, -8 * percent)
+torusLowerLeft.position.set(-35 * percent, -35 * percent, -12 * percent)
+torusUpperLeft.position.set(-60 * percent, 30 * percent, -30 * percent)
+torusLowerRight.position.set(35 * percent, -30 * percent, 0 * percent)
 
 /**
  * Camera
@@ -114,18 +128,37 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  * Animate
  */
 
-// const clock = new THREE.Clock()
+const clock = new THREE.Clock()
+const mouse = {
+  x: 0,
+  y: 0
+}
+window.addEventListener('mousemove', (event) => {
+  mouse.x = event.pageX
+  mouse.y = event.pageY
+})
 
 const tick = () => {
-  // const elapsedTime = clock.getElapsedTime()
+  const elapsedTime = clock.getElapsedTime()
 
   // Update objects
-  // sphere.rotation.y = .5 * elapsedTime
+  sphereMiddle.rotation.y = 0.5 * elapsedTime
   // sphere.width = params.boxWidth
   // sphere.scale.x = params.boxWidth
   pointLight.position.x = params.pointLightX
   pointLight.position.y = params.pointLightY
   pointLight.position.z = params.pointLightZ
+  const clientWidth = window.innerWidth / 2
+  const clientHeight = window.innerHeight / 2
+  const deg = 3.1415 / 180
+  sphereLowerRight.position.x = 28 - (mouse.x - clientWidth) * 0.001
+  torusLowerRight.position.y = -30 - (clientHeight - mouse.y) * 0.001
+
+  sphereUpperRight.position.x = 30 + (mouse.x - clientWidth) * 0.001
+  // torusUpperRight.position.x = 35 + (mouse.x - clientWidth) * 0.001
+  torusLowerLeft.position.x = -35 - (mouse.x - clientWidth) * 0.001
+  torusUpperLeft.rotation.y = 10 + (mouse.x - clientWidth) / 60 * deg
+  torusUpperLeft.position.y = 30 + (clientWidth - mouse.y) * 0.001
 
   // Update Orbital Controls
   // controls.update()

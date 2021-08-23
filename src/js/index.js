@@ -45,13 +45,12 @@ window.onload = function () {
   // scroll event
   window.addEventListener('scroll', function (e) {
     const scrolled = window.pageYOffset
-
-    const scale = scrolled * 0.05
     // home
     const home = document.querySelector('#home')
-    if (scale === 0) home.style.transform = 'scale(1)'
-    if (scale > 1 && scale < 8) {
-      home.style.transform = `scale(${scale})`
+    if (scrolled > 0) {
+      addClass(home, 'large')
+    } else if (scrolled === 0) {
+      removeClass(home, 'large')
     }
 
     // about me文字左右移動
@@ -84,6 +83,18 @@ window.onload = function () {
 
     const project = document.querySelector('#project')
     const projectTitle = document.querySelector('#project .title')
+
+    // experience
+    if (scrolled >= project.offsetTop - 300) {
+      removeClass(experience, 'sticky')
+    } else if (scrolled >= experience.offsetTop - 100) {
+      experience.style.opacity = 1
+      addClass(experience, 'sticky')
+    }
+    if (scrolled >= project.offsetTop - 800) {
+      experience.style.opacity = 0
+    }
+    // project
     if (scrolled >= project.offsetTop - 500) {
       addClass(projectTitle, 'fade-in')
     } else if (scrolled < project.offsetTop) {
