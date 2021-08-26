@@ -3,5 +3,8 @@
 @import './config/reset';
 @import './config/reboot';
 @import './config/typography';
+// element
+@import './element/title';
+@import './index';
+@import './browser';
 
-@import 'page.scss';

@@ -17,6 +17,7 @@ window.onload = function () {
   };
   const jailulu = document.querySelector('#jailulu a')
   const jailuluVideo = document.querySelector('#jailulu video')
+
   jailulu.addEventListener('mouseenter', () => {
     startVideo(jailulu, jailuluVideo)
   }, false)
@@ -52,12 +53,11 @@ window.onload = function () {
     } else if (scrolled === 0) {
       removeClass(home, 'large')
     }
-
     // about me文字左右移動
     const scrollRight = document.querySelectorAll('.scroll-right')
     const scrollLeft = document.querySelectorAll('.scroll-left')
 
-    const rateX = scrolled * 0.5 - 100
+    const rateX = scrolled * 0.5
     const rateY = scrolled * 0.2 - 100
 
     scrollRight.forEach(item => {
@@ -83,6 +83,40 @@ window.onload = function () {
 
     const project = document.querySelector('#project')
     const projectTitle = document.querySelector('#project .title')
+    const rateData = {
+      jailulu: 800,
+      piano: -950,
+      pomodoro: 1100
+    }
+
+    // const jailuluInfo = document.querySelector('#jailulu .info')
+    // const pianoInfo = document.querySelector('#piano .info')
+    // const pomodoroInfo = document.querySelector('#pomodoro .info')
+    function upDownMoving (domName) {
+      const dom = document.querySelector(`#${domName} .info`)
+      const rate = (rateData[domName] > 0 ? scrolled * 0.2 : scrolled * -0.2) - rateData[domName]
+      dom.style.transform = `translateY(${rate}px)`
+    }
+    function showInfo (domName) {
+      const dom = document.querySelector(`#${domName}`)
+      const domInfo = document.querySelector(`#${domName} .info`)
+      const offsetTop = project.offsetTop + dom.offsetTop - 150
+      // console.log(domName, project.offsetTop, dom.offsetTop)
+      if (scrolled >= offsetTop) {
+        addClass(domInfo, 'show')
+      } else if (scrolled < offsetTop) {
+        removeClass(domInfo, 'show')
+      }
+    }
+    if (window.innerWidth > 1024) {
+      upDownMoving('jailulu')
+      upDownMoving('piano')
+      upDownMoving('pomodoro')
+    } else {
+      showInfo('jailulu')
+      showInfo('piano')
+      showInfo('pomodoro')
+    }
 
     // experience
     if (scrolled >= project.offsetTop - 300) {
@@ -104,11 +138,11 @@ window.onload = function () {
     // project 淡入動畫
     function showAnimate (domName) {
       const dom = document.querySelector(`#${domName}`)
-      const offsetTop = project.offsetTop + dom.offsetTop - 600
+      const offsetTop = project.offsetTop + dom.offsetTop - 400
       if (scrolled >= offsetTop) {
-        removeClass(dom, 'hide')
+        addClass(dom, 'show')
       } else if (scrolled < offsetTop) {
-        addClass(dom, 'hide')
+        removeClass(dom, 'show')
       }
     };
     showAnimate('jailulu')

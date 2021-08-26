@@ -1,20 +1,20 @@
 header {
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   background-color: transparent;
   z-index: 10;
   .menu {
     position: absolute;
     top: 0;
     right: 0;
-    width: 32%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     padding: 1rem 0;
   }
   a {
+    width: 130px;
     text-align: right;
     margin: 0 1.5rem;
     color: $text;
@@ -47,8 +47,14 @@ header {
     }
   }
 }
-#home {
+#home,
+#about,
+#experience,
+#project,
+#contact {
   overflow: hidden;
+}
+#home {
   height: 150vh;
   width: 100vw;
   .webCase {
@@ -70,7 +76,7 @@ header {
     }
     .header {
       position: relative;
-      border-radius: 20px 20px 5px 5px;
+      border-radius: 1rem 1rem .5rem .5rem;
       height: 10vh;
     }
     .header .buttons {
@@ -81,8 +87,8 @@ header {
       display: flex;
       .button {
         margin-right: 15px;
-        width: 20px;
-        height: 20px;
+        width: 1.25rem;
+        height: 1.25rem;
         border-radius: 20px;
         box-shadow: 0 0 8px rgba($backend, .5);
       }
@@ -97,13 +103,18 @@ header {
       }
     } 
     .body {
-      margin-top: 25px;
+      margin-top: 2%;
       height: 75vh;
       display: flex;
       justify-content: center;
       z-index: 9;
       position: relative;
-      border-radius: 5px 5px 20px 20px;
+      border-radius: .5rem .5rem 1rem 1rem;
+      .button {
+        padding: 5px;
+        display: none;
+        color: $text;
+      }
     }
     .searchBar {
       margin-top: 60px;
@@ -117,9 +128,10 @@ header {
       align-items: center;
       justify-content: center;
       h3 {
+        font-size: $font-l;
         margin: 0;
         display: inline-block;
-        width: 350px;
+        width: 22rem;
         color: $text;
         border-right: 3px solid $text;
         letter-spacing: -0.5rem;
@@ -153,18 +165,25 @@ header {
 
 #about {
   height: 100vh;
-  overflow: hidden;
   background-color: $backend;
   color: $text;
   padding: 100px 0;
   display: flex;
   align-items: flex-end;
   position: relative;
+  .title {
+    position: absolute;
+    top: 0;
+  }
+  .scroll-right {
+    position: relative;
+    right: 65vw;
+  }
   img {
     width: 40%;
     z-index: 2;
   }
-  .about-info {
+  .info {
     width: 300px;
     margin-top: 80px;
     margin-left: 30px;
@@ -173,47 +192,7 @@ header {
     }
   }
 }
-#about .title {
-  position: absolute;
-  top: 0;
-}
-// element
-.title {
-  h1, h2 {
-    display: inline-block;
-    font-weight: 900;
-    font-style: italic;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 100%;
-  }
-  h1 {
-    font-size: 9vw;
-    line-height: 8vw;
-  }
-  h2 {
-    font-size: 6rem;
-    line-height: 6rem;
-  }
-  &.text-stroke {
-    z-index: 3;
-  }
-  &.text-stroke h1 {
-    color: transparent;
-    -webkit-text-stroke: 3px $text;
-  }
-  .text-stroke {
-    color: transparent;
-    -webkit-text-stroke: 3px $text;
-  }
-  h1.scroll-right {
-    position: relative;
-    right: 80vw;
-  }
-}
 #experience {
-  overflow: hidden;
   height: 230vh;
   background-color: $backend;
   color: $text;
@@ -239,7 +218,9 @@ header {
       width: 1200px;
     }
     .works {
-      @include center(0, 0);
+      position: absolute;
+      top: 0;
+      left: 0;
       display: flex;
     }
     .works > div {
@@ -284,7 +265,7 @@ header {
 #project {
   position: relative;
   background-color: $backend;
-  padding-top: 50px;
+  padding: 50px 0;
   .title {
     transition: 1s;
     opacity: 0;
@@ -305,14 +286,14 @@ header {
     display: flex;
     flex-direction: column;
     padding: 25px 5% 25px;
-    & > div.hide {
-      opacity: 0;
-      top: 100px;
+    & > div.show {
+      opacity: 1;
+      top: 0;
     }
     & > div {
       position: relative;
-      top: 0;
-      opacity: 1;
+      top: 100px;
+      opacity: 0;
       transition: .5s;
       display: flex;
       align-items: center;
@@ -348,8 +329,10 @@ header {
       background-color: lighten($primary, 3);
       position: absolute;
       bottom: 0;
-      width: 280px;
-      height: 280px;
+      width: 25vw;
+      height: 25vw;
+      max-width: 280px;
+      max-height: 280px;
       border-radius: 100%;
       display: flex;
       text-align: center;
@@ -357,8 +340,9 @@ header {
       flex-direction: column;
       box-shadow: 0 0 15px rgba($backend, .4);
     }
-    .info img {
-      width: 36px;
+    img {
+      width: 2.5rem;
+      max-width: 36px;
       margin-bottom: -15px;
     }
     h3, p {
@@ -378,7 +362,7 @@ header {
   height: 100vh;
   text-align: center;
   .title {
-    margin: -50px 0 0;
+    margin: -3rem 0 0;
     color: $text;
     font-size: 6rem;
   }
@@ -395,9 +379,13 @@ header {
     width: 80%;
   }
   .plane {
-    @include center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 9;
-    width: 130px;
+    max-width: 130px;
+    width: 8rem;
     animation: paperPlane 2.5s linear 0s infinite normal;
   }
 }
