@@ -1,3 +1,11 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+main {
+  width: 100vw;
+  max-width: 2000px;
+}
 header {
   position: fixed;
   top: 0;
@@ -177,7 +185,7 @@ header {
   }
   .scroll-right {
     position: relative;
-    right: 65vw;
+    right: 55vw;
   }
   img {
     width: 40%;
@@ -206,56 +214,56 @@ header {
     margin-top: 50px;
   }
   .timeLine {
-    width: 1200px;
+    width: 100vw;
     position: relative;
     bottom: -100px;
     #line {
       width: 0;
       border-top: 2px solid $text;
       transition: width 1.5s;
-    }
-    #line.extend {
-      width: 1200px;
+      &.extend {
+        width: 100vw;
+      }
     }
     .works {
       position: absolute;
       top: 0;
       left: 0;
       display: flex;
-    }
-    .works > div {
-      width: 600px;
-      position: relative;
-      padding-left: 3%;
-      padding-top: 30px;
-    }
-    .works > div::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 10px;
-      height: 10px;
-      background-color: $text;
-      border-radius: 10px;
-      transform: translate(-50%, -50%);
-    }
-    .works > .largeDot::before{
-      width: 15px;
-      height: 15px;
-    }
-    .works > .fullDot::before{
-      background-color: $primary;
-      width: 100vw;
-      height: 100vw;
-      border-radius: 100vw;
-    }
-    .works h4 {
-      position: absolute;
-      top: -60px;
-      left: 0;
-      transform: translateX(-50%);
-    }
+      & > div {
+        width: 50vw;
+        position: relative;
+        padding-left: 3%;
+        padding-top: 2rem;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 10px;
+          height: 10px;
+          background-color: $text;
+          border-radius: 10px;
+          transform: translate(-50%, -50%);
+        }
+      }
+      & > .largeDot::before{
+        width: 15px;
+        height: 15px;
+      }
+      & > .fullDot::before{
+        background-color: $primary;
+        width: 100vw;
+        height: 100vw;
+        border-radius: 100vw;
+      }
+      h4 {
+        position: absolute;
+        top: -60px;
+        left: 0;
+        transform: translateX(-50%);
+      }
+    } 
   }
   .title.fixed{
     position: fixed;
@@ -272,15 +280,15 @@ header {
     width: 100%;
     text-align: right;
     color: $primary;
+    h2 {
+      line-height: 6.3rem;
+    }
+    h2.text-stroke {
+      -webkit-text-stroke: 3px $primary;
+    }
   }
   .title.fade-in {
     opacity: 1;
-  }
-  .title h2 {
-    line-height: 6.3rem;
-  }
-  .title h2.text-stroke {
-    -webkit-text-stroke: 3px $primary;
   }
   .projects {
     display: flex;

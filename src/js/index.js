@@ -6,38 +6,38 @@ window.onload = function () {
     dom.classList.remove(className)
   };
   // video play & status
-  function startVideo (dom, video) {
-    addClass(dom, 'large')
-    video.pause()
-    video.currentTime = 0
+  function startVideo (domName) {
+    const dom = document.querySelector(`#${domName} a`)
+    const video = document.querySelector(`#${domName} video`)
+    if (window.innerWidth >= 768) {
+      addClass(dom, 'large')
+      video.pause()
+      video.currentTime = 0
+    }
     video.play()
     video.addEventListener('ended', () => {
       video.currentTime = 0
     }, false)
   };
   const jailulu = document.querySelector('#jailulu a')
-  const jailuluVideo = document.querySelector('#jailulu video')
-
   jailulu.addEventListener('mouseenter', () => {
-    startVideo(jailulu, jailuluVideo)
+    startVideo('jailulu')
   }, false)
   jailulu.addEventListener('mouseleave', () => {
     removeClass(jailulu, 'large')
   }, false)
 
   const piano = document.querySelector('#piano a')
-  const pianoVideo = document.querySelector('#piano video')
   piano.addEventListener('mouseenter', () => {
-    startVideo(piano, pianoVideo)
+    startVideo('piano')
   }, false)
   piano.addEventListener('mouseleave', () => {
-    removeClass(piano, 'large')
+    removeClass('piano', 'large')
   }, false)
 
   const pomodoro = document.querySelector('#pomodoro a')
-  const pomodoroVideo = document.querySelector('#pomodoro video')
   pomodoro.addEventListener('mouseenter', () => {
-    startVideo(pomodoro, pomodoroVideo)
+    startVideo('pomodoro')
   }, false)
   pomodoro.addEventListener('mouseleave', () => {
     removeClass(pomodoro, 'large')
@@ -57,28 +57,35 @@ window.onload = function () {
     const scrollRight = document.querySelectorAll('.scroll-right')
     const scrollLeft = document.querySelectorAll('.scroll-left')
 
-    const rateX = scrolled * 0.5
+    const rateX = scrolled * 0.03
     const rateY = scrolled * 0.2 - 100
-
     scrollRight.forEach(item => {
-      item.style.transform = `translate(${rateX}px, ${rateY}px)`
+      item.style.transform = `translate(${rateX}vw, ${rateY}px)`
     })
     scrollLeft.forEach(item => {
-      item.style.transform = `translate(-${rateX}px, ${rateY}px)`
+      item.style.transform = `translate(-${rateX}vw, ${rateY}px)`
     })
 
     const experience = document.querySelector('#experience')
     const timeLine = document.querySelector('.timeLine')
     const line = document.querySelector('#line')
+    const works = document.querySelector('.works')
     const timeLineRateX = scrolled * 0.7
-    // work-timeline向左移動
-    const offset = timeLineRateX - timeLine.offsetWidth - 500
-    timeLine.style.right = (offset <= 800) ? `${offset}px` : '800px'
-    // work-timeline線延伸
-    if (scrolled >= experience.offsetTop) {
-      addClass(line, 'extend')
-    } else if (scrolled < experience.offsetTop) {
-      removeClass(line, 'extend')
+
+    function timelineAnimate () {
+      // work-timeline向左移動
+      const offset = timeLineRateX - timeLine.offsetWidth - 500
+      if (window.innerWidth >= 768) {
+        timeLine.style.right = (offset <= 1200) ? `${offset}px` : '1200px'
+      }
+      // work-timeline線延伸
+      if (scrolled >= experience.offsetTop) {
+        addClass(line, 'extend')
+        if (window.innerWidth < 768) addClass(works, 'show')
+      } else if (scrolled < experience.offsetTop) {
+        removeClass(line, 'extend')
+        if (window.innerWidth < 768) removeClass(works, 'show')
+      }
     }
 
     const project = document.querySelector('#project')
@@ -89,9 +96,6 @@ window.onload = function () {
       pomodoro: 1100
     }
 
-    // const jailuluInfo = document.querySelector('#jailulu .info')
-    // const pianoInfo = document.querySelector('#piano .info')
-    // const pomodoroInfo = document.querySelector('#pomodoro .info')
     function upDownMoving (domName) {
       const dom = document.querySelector(`#${domName} .info`)
       const rate = (rateData[domName] > 0 ? scrolled * 0.2 : scrolled * -0.2) - rateData[domName]
@@ -108,6 +112,8 @@ window.onload = function () {
         removeClass(domInfo, 'show')
       }
     }
+
+    timelineAnimate()
     if (window.innerWidth > 1024) {
       upDownMoving('jailulu')
       upDownMoving('piano')
@@ -125,7 +131,7 @@ window.onload = function () {
       experience.style.opacity = 1
       addClass(experience, 'sticky')
     }
-    if (scrolled >= project.offsetTop - 800) {
+    if (scrolled >= project.offsetTop - 800 && window.innerWidth >= 768) {
       experience.style.opacity = 0
     }
     // project
@@ -141,6 +147,7 @@ window.onload = function () {
       const offsetTop = project.offsetTop + dom.offsetTop - 400
       if (scrolled >= offsetTop) {
         addClass(dom, 'show')
+        if (window.innerWidth < 768) startVideo(domName)
       } else if (scrolled < offsetTop) {
         removeClass(dom, 'show')
       }

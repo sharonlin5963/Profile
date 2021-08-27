@@ -16,6 +16,50 @@
       display: block;
     }
   }
+  #experience{
+    height: 150vh;
+  }
+  #experience .timeLine  {
+    transform: translateX(0);
+    bottom: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #line {
+      width: 80vw;
+      height: 0px;
+      border-top: none;
+      border-left: 2px solid $text;
+      transition: height 1s;
+      &.extend {
+        height: 250px;
+        width: 80vw;
+      }
+    }
+    .works {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      opacity: 0;
+      top: 10px;
+      transition: .5s;
+      & > div {
+        width: 80vw;
+        height: 250px;
+      }
+      h4 {
+        top: -15px;
+        left: 40px;
+      }
+      .largeDot {
+        display: none;
+      }
+      &.show {
+        opacity: 1;
+        top: 0;
+      }
+    }
+  }
 }
 @media (Max-width: 1024px) {
   #about {
@@ -26,6 +70,9 @@
     .title h1:nth-child(1) {
       position: relative;
       left: 700px;
+    }
+    .scroll-right {
+      right: 0;
     }
     img {
       width: 80%;
@@ -39,12 +86,17 @@
       }
     }
   }
+  #experience .timeLine  {
+    transform: translateX(90vw);
+    bottom: -10%;
+  }
   #project {
     padding: 0;
     .projects {
       & > div {
         margin: 0;
         flex-direction: column;
+        align-items: flex-start;
         .media {
           width: 100%;
         }
@@ -52,13 +104,12 @@
       .info {
         position: relative;
         background: none;
-        width: initial;
         height: initial;
         box-shadow: none;
         right: 0;
         text-align: left;
         margin-top: 10px;
-        width: 90%;
+        width: 100%;
         opacity: 0;
         transition: 0.5s;
       }
@@ -67,20 +118,21 @@
       }
       & > div:nth-child(odd) .info {
         right: 0;
-        left: 20px;
+        left: 30px;
       }
       & > div:nth-child(even) .info {
-        left: -20px;
+        left: -30px;
         text-align: right;
+        align-self: flex-end;
       }
       .info.show {
         opacity: 1;
       }
       & > div:nth-child(odd) .info.show {
-        left: 0;
+        left: 10px;
       }
       & > div:nth-child(even) .info.show {
-        left: 0;
+        left: -10px;
       }
     }
   }
