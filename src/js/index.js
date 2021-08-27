@@ -19,6 +19,7 @@ window.onload = function () {
       video.currentTime = 0
     }, false)
   };
+  // #project-mouseenter
   const jailulu = document.querySelector('#jailulu a')
   jailulu.addEventListener('mouseenter', () => {
     startVideo('jailulu')
@@ -32,7 +33,7 @@ window.onload = function () {
     startVideo('piano')
   }, false)
   piano.addEventListener('mouseleave', () => {
-    removeClass('piano', 'large')
+    removeClass(piano, 'large')
   }, false)
 
   const pomodoro = document.querySelector('#pomodoro a')
@@ -46,14 +47,14 @@ window.onload = function () {
   // scroll event
   window.addEventListener('scroll', function (e) {
     const scrolled = window.pageYOffset
-    // home
+    // #home-縮放
     const home = document.querySelector('#home')
     if (scrolled > 0) {
       addClass(home, 'large')
     } else if (scrolled === 0) {
       removeClass(home, 'large')
     }
-    // about me文字左右移動
+    // #about me文字左右移動
     const scrollRight = document.querySelectorAll('.scroll-right')
     const scrollLeft = document.querySelectorAll('.scroll-left')
 
@@ -124,7 +125,7 @@ window.onload = function () {
       showInfo('pomodoro')
     }
 
-    // experience
+    // #experience
     if (scrolled >= project.offsetTop - 300) {
       removeClass(experience, 'sticky')
     } else if (scrolled >= experience.offsetTop - 100) {
@@ -134,14 +135,14 @@ window.onload = function () {
     if (scrolled >= project.offsetTop - 800 && window.innerWidth >= 768) {
       experience.style.opacity = 0
     }
-    // project
+    // #project-title淡入動畫
     if (scrolled >= project.offsetTop - 500) {
       addClass(projectTitle, 'fade-in')
     } else if (scrolled < project.offsetTop) {
       removeClass(projectTitle, 'fade-in')
     }
 
-    // project 淡入動畫
+    // #project-works 淡入動畫
     function showAnimate (domName) {
       const dom = document.querySelector(`#${domName}`)
       const offsetTop = project.offsetTop + dom.offsetTop - 400

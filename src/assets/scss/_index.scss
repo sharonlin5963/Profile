@@ -251,12 +251,6 @@ header {
         width: 15px;
         height: 15px;
       }
-      & > .fullDot::before{
-        background-color: $primary;
-        width: 100vw;
-        height: 100vw;
-        border-radius: 100vw;
-      }
       h4 {
         position: absolute;
         top: -60px;
@@ -279,12 +273,12 @@ header {
     opacity: 0;
     width: 100%;
     text-align: right;
-    color: $primary;
+    color: $text;
     h2 {
       line-height: 6.3rem;
     }
     h2.text-stroke {
-      -webkit-text-stroke: 3px $primary;
+      -webkit-text-stroke: 3px $text;
     }
   }
   .title.fade-in {
@@ -334,7 +328,6 @@ header {
       right: 100px;
     }
     .info {
-      background-color: lighten($primary, 3);
       position: absolute;
       bottom: 0;
       width: 25vw;
@@ -347,6 +340,15 @@ header {
       justify-content: center;
       flex-direction: column;
       box-shadow: 0 0 15px rgba($backend, .4);
+    }
+    #jailulu .info {
+      background-color: #91c4be;
+    }
+    #piano .info {
+      background-color: #595859;
+    }
+    #pomodoro .info {
+      background-color: #f28249;
     }
     img {
       width: 2.5rem;
