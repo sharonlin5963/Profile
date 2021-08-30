@@ -92,15 +92,15 @@ window.onload = function () {
     const project = document.querySelector('#project')
     const projectTitle = document.querySelector('#project .title')
     const rateData = {
-      jailulu: 800,
-      piano: -950,
-      pomodoro: 1100
+      jailulu: 75,
+      piano: -85,
+      pomodoro: 100
     }
 
     function upDownMoving (domName) {
       const dom = document.querySelector(`#${domName} .info`)
-      const rate = (rateData[domName] > 0 ? scrolled * 0.2 : scrolled * -0.2) - rateData[domName]
-      dom.style.transform = `translateY(${rate}px)`
+      const rate = (rateData[domName] > 0 ? scrolled * 0.015 : scrolled * -0.015) - rateData[domName]
+      dom.style.transform = `translateY(${rate}vh)`
     }
     function showInfo (domName) {
       const dom = document.querySelector(`#${domName}`)
@@ -113,7 +113,7 @@ window.onload = function () {
         removeClass(domInfo, 'show')
       }
     }
-
+    // project
     timelineAnimate()
     if (window.innerWidth > 1024) {
       upDownMoving('jailulu')

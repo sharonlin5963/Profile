@@ -1,17 +1,35 @@
 body {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
+}
+#about,
+#experience,
+#project,
+#contact{
+  overflow: hidden;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 main {
   width: 100vw;
-  max-width: 2000px;
 }
 header {
   position: fixed;
   top: 0;
+  right: 0;
   width: 100%;
   background-color: transparent;
   z-index: 10;
+  .logo {
+    position: fixed;
+    width: 34px;
+    height: 34px;
+    top: 1.2rem;
+    left: 1.5rem;
+    border: 2px solid $primary;
+    border-radius: 100px;
+    padding: 6px;
+  }
   .menu {
     position: absolute;
     top: 0;
@@ -55,14 +73,8 @@ header {
     }
   }
 }
-#home,
-#about,
-#experience,
-#project,
-#contact {
-  overflow: hidden;
-}
 #home {
+  overflow: hidden;
   height: 150vh;
   width: 100vw;
   .webCase {
@@ -78,7 +90,7 @@ header {
     .header, .body {
       transition: background .5s;
       width: 90%;
-      max-width: 1080px;
+      max-width: 1440px;
       box-shadow: 0 0 15px rgba($backend, .4);
       background-color: rgba($text, .2);
     }
@@ -340,15 +352,6 @@ header {
       justify-content: center;
       flex-direction: column;
       box-shadow: 0 0 15px rgba($backend, .4);
-    }
-    #jailulu .info {
-      background-color: #91c4be;
-    }
-    #piano .info {
-      background-color: #595859;
-    }
-    #pomodoro .info {
-      background-color: #f28249;
     }
     img {
       width: 2.5rem;

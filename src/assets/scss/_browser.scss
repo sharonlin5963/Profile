@@ -2,6 +2,15 @@
   body, html {
     font-size: $base-font-size / 2;
   }
+  header {
+    .logo {
+      width: 25px;
+      height: 25px;
+      top: initial;
+      bottom: 1.2rem;
+      padding: 4px;
+    }
+  }
   #home .webCase {
     .header {
       display: none;
@@ -16,7 +25,7 @@
       display: block;
     }
   }
-  #experience{
+  #experience {
     height: 150vh;
   }
   #experience .timeLine  {
@@ -87,7 +96,6 @@
     }
   }
   #experience .timeLine  {
-    transform: translateX(90vw);
     bottom: -10%;
   }
   #project {
@@ -134,6 +142,24 @@
       & > div:nth-child(even) .info.show {
         left: -10px;
       }
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 1024px){ 
+  #experience .timeLine  {
+    transform: translateX(90vw);
+  }
+}
+@media (min-width: 1025px) {
+  #project {
+    #jailulu .info {
+      background-color: #91c4be;
+    }
+    #piano .info {
+      background-color: #595859;
+    }
+    #pomodoro .info {
+      background-color: #f28249;
     }
   }
 }
