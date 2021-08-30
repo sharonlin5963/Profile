@@ -1,6 +1,6 @@
 @media (Max-width: 480px) {
   body, html {
-    font-size: $base-font-size / 2;
+    font-size: $base-font-size * 0.8;
   }
   header {
     .logo {
