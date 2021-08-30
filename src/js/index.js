@@ -1,3 +1,6 @@
+import favorite00 from '@/assets/images/favorite00.png'
+import favorite01 from '@/assets/images/favorite01.png'
+import favorite02 from '@/assets/images/favorite02.png'
 window.onload = function () {
   function addClass (dom, className) {
     dom.classList.add(className)
@@ -19,6 +22,16 @@ window.onload = function () {
       video.currentTime = 0
     }, false)
   };
+  // #about 主圖片隨機置換
+  const random = (Math.random() * 10).toFixed(0) * 1 % 3
+  const favoriteImage = document.querySelector('#favoriteImage')
+  const favoriteImages = {
+    0: favorite00,
+    1: favorite01,
+    2: favorite02
+  }
+  favoriteImage.src = favoriteImages[random]
+
   // #project-mouseenter
   const jailulu = document.querySelector('#jailulu a')
   jailulu.addEventListener('mouseenter', () => {
