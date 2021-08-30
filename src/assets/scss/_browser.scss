@@ -69,6 +69,14 @@
       }
     }
   }
+  #contact {
+    .title {
+      font-size: 4rem;
+    }
+    .email {
+      margin-top: 0;
+    }
+  }
 }
 @media (Max-width: 1024px) {
   #about {
