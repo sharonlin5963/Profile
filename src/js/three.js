@@ -42,7 +42,7 @@ const torusGeometryThinR2 = new THREE.TorusGeometry(2, 0.5, 16, 100)
 
 //* Materials
 const pinkMaterial = new THREE.MeshPhongMaterial()
-pinkMaterial.color = new THREE.Color(0xa55ce6)
+pinkMaterial.color = new THREE.Color(0x9a63c9)
 pinkMaterial.shininess = 80
 const blueMaterial = new THREE.MeshPhongMaterial()
 blueMaterial.color = new THREE.Color(0xb7baf7)
@@ -85,12 +85,15 @@ const light = new THREE.AmbientLight(0x828282) // soft white light
 scene.add(light)
 const pointLight = new THREE.PointLight(0xffffff, 1, 100)
 scene.add(pointLight)
-const pointLightGreen = new THREE.PointLight(0x00f080, 1, 100)
-scene.add(pointLightGreen)
-pointLightGreen.position.set(10, -15, 5)
-const pointLightOrange = new THREE.PointLight(0xff6a00, 1.5, 100)
-scene.add(pointLightOrange)
-pointLightOrange.position.set(-30, 20, 0)
+const pointLightPink = new THREE.PointLight(0x85ffeb, 1, 100)
+scene.add(pointLightPink)
+pointLightPink.position.set(20, -15, 10)
+const pointLightBlue = new THREE.PointLight(0x394eed, 1.5, 100)
+scene.add(pointLightBlue)
+pointLightBlue.position.set(-18, -10, 30)
+const pointLightPurple = new THREE.PointLight(0x901ff2, 1.5, 100)
+scene.add(pointLightPurple)
+pointLightPurple.position.set(10, 30, 30)
 
 //* Camera
 // Base camera
