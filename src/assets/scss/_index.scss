@@ -80,9 +80,9 @@ header {
   .webCase {
     width: 100%;
     position: absolute;
-    top: 50px;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,14 +90,14 @@ header {
     .header, .body {
       transition: background .5s;
       width: 90%;
-      max-width: 1440px;
+      max-width: 1080px;
       box-shadow: 0 0 15px rgba($backend, .4);
       background-color: rgba($text, .2);
     }
     .header {
       position: relative;
-      border-radius: 1rem 1rem .5rem .5rem;
-      height: 10vh;
+      border-radius: .5rem .5rem .2rem .2rem;
+      height: 8vh;
     }
     .header .buttons {
       position: absolute;
@@ -124,12 +124,12 @@ header {
     } 
     .body {
       margin-top: 2%;
-      height: 75vh;
+      height: 80vh;
       display: flex;
       justify-content: center;
       z-index: 9;
       position: relative;
-      border-radius: .5rem .5rem 1rem 1rem;
+      border-radius: .2rem .2rem .5rem .5rem;
       .button {
         padding: 5px;
         display: none;
