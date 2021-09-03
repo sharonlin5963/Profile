@@ -31,69 +31,82 @@ scene.background = new THREE.Color(0x211945)
 
 //* Objects
 // ? 球體
+const sphereGeometryR2 = new THREE.SphereGeometry(2.8, 32, 32)
 const sphereGeometryR4 = new THREE.SphereGeometry(4, 32, 32)
 const sphereGeometryR16 = new THREE.SphereGeometry(16, 32, 32)
-const sphereGeometryR8 = new THREE.SphereGeometry(8, 32, 32)
+const sphereGeometryR6 = new THREE.SphereGeometry(6, 32, 32)
 // ? 甜甜圈
 const torusGeometryThinR25 = new THREE.TorusGeometry(25, 0.5, 16, 100)
 const torusGeometryThinR10 = new THREE.TorusGeometry(10, 0.5, 16, 100)
-const torusGeometryThinR5 = new THREE.TorusGeometry(5, 0.2, 16, 100)
 const torusGeometryThinR2 = new THREE.TorusGeometry(2, 0.5, 16, 100)
 
 //* Materials
-const pinkMaterial = new THREE.MeshPhongMaterial()
-pinkMaterial.color = new THREE.Color(0x9a63c9)
-pinkMaterial.shininess = 80
+const purpleMaterial = new THREE.MeshPhongMaterial()
+purpleMaterial.color = new THREE.Color(0x9a63c9)
+purpleMaterial.shininess = 80
+const greenMaterial = new THREE.MeshPhongMaterial()
+greenMaterial.color = new THREE.Color(0x85ffeb)
+greenMaterial.shininess = 80
 const blueMaterial = new THREE.MeshPhongMaterial()
-blueMaterial.color = new THREE.Color(0xb7baf7)
-blueMaterial.flatShading = true
+blueMaterial.color = new THREE.Color(0x4d61ff)
+
+const mainMaterial = new THREE.MeshPhongMaterial()
+mainMaterial.color = new THREE.Color(0xb7baf7) // a1a5f7
+mainMaterial.flatShading = true
 
 //* Mesh
-let sphereMiddle, torusUpperRight, sphereLowerRight, torusLowerLeft, sphereUpperRight
+let sphereMiddle, torusUpperRight, sphereLowerRight, torusLowerLeft, sphereUpperRight, sphereMiddleLeft, sphereUpperLeft
 if (sizes.width <= 1024) {
-  sphereMiddle = new THREE.Mesh(sphereGeometryR4, blueMaterial)
-  torusUpperRight = new THREE.Mesh(torusGeometryThinR10, pinkMaterial)
-  torusLowerLeft = new THREE.Mesh(torusGeometryThinR5, pinkMaterial)
-  const torusLower = new THREE.Mesh(torusGeometryThinR2, pinkMaterial)
-  torusLowerLeft.position.set(-18, -4, 0)
-  torusLower.position.set(0, -10, 0)
-  sphereMiddle.position.set(-12, 9, 0)
-  scene.add(torusLowerLeft)
+  sphereMiddle = new THREE.Mesh(sphereGeometryR4, mainMaterial)
+  torusUpperRight = new THREE.Mesh(torusGeometryThinR10, purpleMaterial)
+  const torusLower = new THREE.Mesh(torusGeometryThinR2, blueMaterial)
+  sphereMiddleLeft = new THREE.Mesh(sphereGeometryR2, blueMaterial)
+  sphereLowerRight = new THREE.Mesh(sphereGeometryR2, greenMaterial)
+  sphereUpperLeft = new THREE.Mesh(sphereGeometryR2, greenMaterial)
+  torusLower.position.set(-7, -12, 0)
+  sphereMiddle.position.set(0, 0, 20)
+  sphereMiddleLeft.position.set(-13, 3, 0)
+  torusUpperRight.position.set(10, 2, 0)
+  sphereLowerRight.position.set(13, -11, -20)
+  sphereUpperLeft.position.set(-18, 22, -80)
   scene.add(torusLower)
+  scene.add(sphereUpperLeft)
 } else {
-  sphereLowerRight = new THREE.Mesh(sphereGeometryR4, pinkMaterial)
-  torusLowerLeft = new THREE.Mesh(torusGeometryThinR10, pinkMaterial)
-  sphereUpperRight = new THREE.Mesh(sphereGeometryR8, pinkMaterial)
-  sphereMiddle = new THREE.Mesh(sphereGeometryR16, blueMaterial)
-  torusUpperRight = new THREE.Mesh(torusGeometryThinR25, pinkMaterial)
+  sphereLowerRight = new THREE.Mesh(sphereGeometryR4, greenMaterial)
+  torusLowerLeft = new THREE.Mesh(torusGeometryThinR10, blueMaterial)
+  sphereUpperRight = new THREE.Mesh(sphereGeometryR6, purpleMaterial)
+  sphereMiddle = new THREE.Mesh(sphereGeometryR16, mainMaterial)
+  sphereMiddleLeft = new THREE.Mesh(sphereGeometryR2, blueMaterial)
+  torusUpperRight = new THREE.Mesh(torusGeometryThinR25, purpleMaterial)
   torusLowerLeft.position.set(-40, -25, 0)
   sphereLowerRight.position.set(28, -10, 0)
   sphereUpperRight.position.set(30, 10, 0)
   sphereMiddle.position.set(-10, 0, 0)
+  sphereMiddleLeft.position.set(-35, 12, 0)
+  torusUpperRight.position.set(10, 5, 0)
   scene.add(torusLowerLeft)
-  scene.add(sphereLowerRight)
   scene.add(sphereUpperRight)
 }
-//* position
-torusUpperRight.position.set(10, 5, 0)
 
 scene.add(sphereMiddle)
 scene.add(torusUpperRight)
+scene.add(sphereMiddleLeft)
+scene.add(sphereLowerRight)
 
 //* Lights
 const light = new THREE.AmbientLight(0x828282) // soft white light
 scene.add(light)
 const pointLight = new THREE.PointLight(0xffffff, 1, 100)
 scene.add(pointLight)
-const pointLightPink = new THREE.PointLight(0x85ffeb, 1, 100)
-scene.add(pointLightPink)
-pointLightPink.position.set(20, -15, 10)
-const pointLightBlue = new THREE.PointLight(0x394eed, 1.5, 100)
-scene.add(pointLightBlue)
-pointLightBlue.position.set(-18, -10, 30)
-const pointLightPurple = new THREE.PointLight(0x901ff2, 1.5, 100)
-scene.add(pointLightPurple)
-pointLightPurple.position.set(10, 30, 30)
+const greenLight = new THREE.PointLight(0x85ffeb, 1, 100)
+scene.add(greenLight)
+greenLight.position.set(20, -15, 10)
+const blueLight = new THREE.PointLight(0x394eed, 1.5, 100)
+scene.add(blueLight)
+blueLight.position.set(-18, 5, 28)
+const purpleLight = new THREE.PointLight(0x901ff2, 1.5, 100)
+scene.add(purpleLight)
+purpleLight.position.set(10, 30, 30)
 
 //* Camera
 // Base camera
@@ -144,10 +157,14 @@ const tick = () => {
 
   if (sizes.width > 1024) {
     const rate = mouseOffset * 0.003
-    sphereLowerRight.position.x = 28 - rate
+    sphereLowerRight.position.y = -10 - rate
     sphereUpperRight.position.x = 30 + rate
     torusLowerLeft.position.x = -40 - rate
+    sphereMiddleLeft.position.x = -35 + rate
     torusUpperRight.rotation.y = mouseOffset * 0.02 * deg
+
+    greenLight.position.y = -15 - rate * 5
+    purpleLight.position.x = 10 + rate * 10
   }
   // light
   // pointLight.position.x = params.pointLightX

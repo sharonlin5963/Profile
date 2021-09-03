@@ -1,9 +1,91 @@
+@media (Max-width: 1024px) {
+  #home .webCase .searchBar h3{
+    top: 37.5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  #about {
+    flex-direction: column;
+    .title {
+      top: 40px;
+    }
+    .title h1:nth-child(1) {
+      position: relative;
+      left: 700px;
+    }
+    .scroll-right {
+      right: 0;
+    }
+    img {
+      width: 80%;
+    }
+    .info {
+      width: 75%;
+      margin: 20px 5%;
+      h4 {
+        border-left: 3px solid $primary;
+        padding-left: 3%;
+      }
+    }
+  }
+  #experience .timeLine  {
+    bottom: -10%;
+    transform: translateX(90vw);
+  }
+  #project {
+    padding: 0;
+    .projects {
+      & > div {
+        margin: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        .media {
+          width: 100%;
+        }
+      }
+      .info {
+        position: relative;
+        background: none;
+        height: initial;
+        box-shadow: none;
+        right: 0;
+        text-align: left;
+        margin-top: 10px;
+        width: 100%;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      img {
+        display: none;
+      }
+      & > div:nth-child(odd) .info {
+        right: 0;
+        left: 30px;
+      }
+      & > div:nth-child(even) .info {
+        left: -30px;
+        text-align: right;
+        align-self: flex-end;
+      }
+      .info.show {
+        opacity: 1;
+      }
+      & > div:nth-child(odd) .info.show {
+        left: 10px;
+      }
+      & > div:nth-child(even) .info.show {
+        left: -10px;
+      }
+    }
+  }
+}
 @media (Max-width: 480px) {
   body, html {
     font-size: $base-font-size * 0.8;
   }
   header {
     .logo {
+      position: fixed;
       width: 25px;
       height: 25px;
       top: initial;
@@ -23,6 +105,15 @@
       top: 0;
       right: 0;
       display: block;
+    }
+    .searchBar h3 {
+      top: 50%;
+      transform: translate(-50%, -65%);
+      font-size: 4.5rem;
+      line-height: 4.5rem;
+      width: 270px;
+      height: 3.5rem;
+      letter-spacing: .5rem;
     }
   }
   #experience {
@@ -77,85 +168,8 @@
       margin-top: 0;
     }
   }
-}
-@media (Max-width: 1024px) {
-  #about {
-    flex-direction: column;
-    .title {
-      top: 40px;
-    }
-    .title h1:nth-child(1) {
-      position: relative;
-      left: 700px;
-    }
-    .scroll-right {
-      right: 0;
-    }
-    img {
-      width: 80%;
-    }
-    .info {
-      width: initial;
-      margin: 20px 5% 0;
-      h4 {
-        border-left: 3px solid $primary;
-        padding-left: 3%;
-      }
-    }
-  }
-  #experience .timeLine  {
-    bottom: -10%;
-  }
-  #project {
-    padding: 0;
-    .projects {
-      & > div {
-        margin: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        .media {
-          width: 100%;
-        }
-      }
-      .info {
-        position: relative;
-        background: none;
-        height: initial;
-        box-shadow: none;
-        right: 0;
-        text-align: left;
-        margin-top: 10px;
-        width: 100%;
-        opacity: 0;
-        transition: 0.5s;
-      }
-      img {
-        display: none;
-      }
-      & > div:nth-child(odd) .info {
-        right: 0;
-        left: 30px;
-      }
-      & > div:nth-child(even) .info {
-        left: -30px;
-        text-align: right;
-        align-self: flex-end;
-      }
-      .info.show {
-        opacity: 1;
-      }
-      & > div:nth-child(odd) .info.show {
-        left: 10px;
-      }
-      & > div:nth-child(even) .info.show {
-        left: -10px;
-      }
-    }
-  }
-}
-@media (min-width: 481px) and (max-width: 1024px){ 
-  #experience .timeLine  {
-    transform: translateX(90vw);
+  #project .title h2 {
+    line-height: 4.3rem;
   }
 }
 @media (min-width: 1025px) {

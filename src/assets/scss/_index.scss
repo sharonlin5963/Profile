@@ -21,14 +21,18 @@ header {
   background-color: transparent;
   z-index: 10;
   .logo {
-    position: fixed;
-    width: 34px;
-    height: 34px;
-    top: 1.2rem;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 1.5rem;
     left: 1.5rem;
     border: 2px solid $primary;
     border-radius: 100px;
-    padding: 6px;
+    padding: 10px;
+    display: flex;
+    img {
+      width: 100%;
+    }
   }
   .menu {
     position: absolute;
@@ -137,30 +141,28 @@ header {
       }
     }
     .searchBar {
-      margin-top: 60px;
-      font-size: 3rem;
-      width: 90%;
-      max-width: 800px;
-      border: 3px solid rgba($text, .1);
-      border-radius: 100px;
-      text-align: center;
-      height: 5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative;
+      width: 100%;
+      transition: .5s;
       h3 {
-        font-size: 3.5rem;
+        font-family: 'Baloo Tamma 2', cursive;
+        font-weight: normal;
+        position: absolute;
+        bottom: 35%;
+        left: 10%;
+        font-size: 9rem;
+        height: 7rem;
         margin: 0;
         display: inline-block;
-        width: 22rem;
-        color: $text;
-        border-right: 3px solid $text;
-        letter-spacing: -0.5rem;
+        width: 710px;
+        color: #FED766;
+        border-right: 3px solid #FED766;
+        letter-spacing: 1.5rem;
         white-space: nowrap;
         overflow: hidden;
-        line-height: 3rem;
-        animation: typing 4s steps(7) infinite,
-        caret 1s steps(1) infinite;
+        line-height: 9rem;
+        animation: typing 2.8s steps(7) infinite,
+        caret .4s steps(1) infinite;
       }
     }
   }
@@ -170,6 +172,9 @@ header {
     .webCase .header,
     .webCase .body {
       background-color: $backend;
+    }
+    .searchBar {
+      opacity: 0;
     }
   }
 }

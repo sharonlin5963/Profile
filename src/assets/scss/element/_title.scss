@@ -25,3 +25,15 @@
     -webkit-text-stroke: .2rem $text;
   }
 }
+@media (Max-width: 480px) {
+  .title {
+    h1 {
+    font-size: 4.5rem;
+    line-height: 4rem;
+    }
+    h2 {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+}
