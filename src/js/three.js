@@ -53,7 +53,7 @@ const blueMaterial = new THREE.MeshPhongMaterial()
 blueMaterial.color = new THREE.Color(0x4d61ff)
 
 const mainMaterial = new THREE.MeshPhongMaterial()
-mainMaterial.color = new THREE.Color(0xb7baf7) // a1a5f7
+mainMaterial.color = new THREE.Color(0xb7baf7)
 mainMaterial.flatShading = true
 
 //* Mesh
@@ -117,7 +117,7 @@ if (sizes.width <= 1024) {
 }
 //* Camera
 // Base camera
-const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 200, 0)
+const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 10, 4000)
 camera.position.z = 60
 scene.add(camera)
 
