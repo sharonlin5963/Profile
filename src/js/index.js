@@ -105,9 +105,9 @@ window.onload = function () {
     const project = document.querySelector('#project')
     const projectTitle = document.querySelector('#project .title')
     const rateData = {
-      jailulu: 60,
+      jailulu: 67,
       piano: -70,
-      pomodoro: 90
+      pomodoro: 92
     }
 
     function upDownMoving (domName) {
