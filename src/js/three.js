@@ -39,7 +39,7 @@ const sphereGeometryR6 = new THREE.SphereGeometry(6, 32, 32)
 // ? 甜甜圈
 const torusGeometryThinR25 = new THREE.TorusGeometry(25, 0.5, 16, 100)
 const torusGeometryThinR10 = new THREE.TorusGeometry(10, 0.5, 16, 100)
-const torusGeometryThinR13 = new THREE.TorusGeometry(13, 0.8, 16, 100)
+const torusGeometryThinR13 = new THREE.TorusGeometry(20, 1.2, 16, 100)
 const torusGeometryThinR2 = new THREE.TorusGeometry(2, 0.5, 16, 100)
 
 //* Materials
@@ -68,7 +68,7 @@ if (sizes.width <= 1024) {
   torusLower.position.set(-7, -11, 0)
   sphereMiddle.position.set(0, 1, 20)
   sphereMiddleLeft.position.set(-13, 5, 0)
-  torusUpperRight.position.set(13, 4, -20)
+  torusUpperRight.position.set(18, 6, -60)
   sphereLowerRight.position.set(6, -5, 20)
   sphereUpperLeft.position.set(-18, 26, -80)
   scene.add(torusLower)
@@ -110,6 +110,9 @@ const purpleLight = new THREE.PointLight(0x901ff2, 1.5, 100)
 scene.add(purpleLight)
 purpleLight.position.set(10, 30, 30)
 if (sizes.width <= 1024) {
+  const subPointLight = new THREE.PointLight(0xffffff, 1, 100)
+  scene.add(subPointLight)
+  subPointLight.position.set(10, 5, -40)
   greenLight.position.z = 40
 }
 //* Camera
