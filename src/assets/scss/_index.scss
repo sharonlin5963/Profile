@@ -144,17 +144,17 @@ header {
       position: relative;
       width: 100%;
       transition: .5s;
-      h3 {
-        font-family: 'Baloo Tamma 2', cursive;
-        font-weight: normal;
+      font-family: 'Baloo Tamma 2', cursive;
+      font-weight: normal;
+      .mainTitle {
         position: absolute;
-        bottom: 35%;
+        bottom: 40%;
         left: 10%;
         font-size: 9rem;
         height: 7rem;
         margin: 0;
         display: inline-block;
-        width: 710px;
+        width: 720px;
         color: #FED766;
         border-right: 3px solid #FED766;
         letter-spacing: 1.5rem;
@@ -163,6 +163,15 @@ header {
         line-height: 9rem;
         animation: typing 2.8s steps(7) infinite,
         caret .4s steps(1) infinite;
+      }
+      .subTitle{
+        position: absolute;
+        left: 11%;
+        bottom: 20%;
+        h4{
+          margin: 5px 0;
+          font-size: 1.2rem;
+        }
       }
     }
   }
@@ -234,7 +243,7 @@ header {
   .timeLine {
     width: 100vw;
     position: relative;
-    bottom: -100px;
+    bottom: -180px;
     #line {
       width: 0;
       border-top: 2px solid $text;

@@ -1,8 +1,16 @@
 @media (Max-width: 1024px) {
-  #home .webCase .searchBar h3{
-    top: 37.5%;
-    left: 50%;
-    transform: translate(-50%, 0%);
+  #home .webCase .searchBar {
+    .mainTitle{
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+    .subTitle {
+      bottom: 30%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      text-align: center;
+    }
   }
   #about {
     flex-direction: column;
@@ -106,14 +114,22 @@
       right: 0;
       display: block;
     }
-    .searchBar h3 {
-      top: 50%;
-      transform: translate(-50%, -65%);
-      font-size: 4.5rem;
-      line-height: 4.5rem;
-      width: 270px;
-      height: 3.5rem;
-      letter-spacing: .5rem;
+    .searchBar {
+      .mainTitle {
+        top: 40%;
+        transform: translate(-50%, 0);
+        font-size: 4.5rem;
+        line-height: 4.5rem;
+        width: 270px;
+        height: 3.5rem;
+        letter-spacing: .5rem;
+      }
+      .subTitle {
+        bottom: 20px;
+        left: 8%;
+        transform: translate(0, 0);
+        text-align: left;
+      }
     }
   }
   #experience {
