@@ -90,7 +90,7 @@ window.onload = function () {
       // work-timeline向左移動
       const offset = timeLineRateX - timeLine.offsetWidth - 500
       if (window.innerWidth >= 768) {
-        timeLine.style.right = (offset <= 1200) ? `${offset}px` : '1200px'
+        timeLine.style.right = (offset <= 2000) ? `${offset}px` : '2000px'
       }
       // work-timeline線延伸
       if (scrolled >= experience.offsetTop) {
