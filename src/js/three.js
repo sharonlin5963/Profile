@@ -32,12 +32,14 @@ scene.background = new THREE.Color(0x211945)
 //* Objects
 // ? 球體
 const sphereGeometryR2 = new THREE.SphereGeometry(2.8, 32, 32)
+const sphereGeometryR1 = new THREE.SphereGeometry(1, 32, 32)
 const sphereGeometryR4 = new THREE.SphereGeometry(4, 32, 32)
 const sphereGeometryR16 = new THREE.SphereGeometry(16, 32, 32)
 const sphereGeometryR6 = new THREE.SphereGeometry(6, 32, 32)
 // ? 甜甜圈
 const torusGeometryThinR25 = new THREE.TorusGeometry(25, 0.5, 16, 100)
 const torusGeometryThinR10 = new THREE.TorusGeometry(10, 0.5, 16, 100)
+const torusGeometryThinR13 = new THREE.TorusGeometry(13, 0.8, 16, 100)
 const torusGeometryThinR2 = new THREE.TorusGeometry(2, 0.5, 16, 100)
 
 //* Materials
@@ -58,16 +60,16 @@ mainMaterial.flatShading = true
 let sphereMiddle, torusUpperRight, sphereLowerRight, torusLowerLeft, sphereUpperRight, sphereMiddleLeft, sphereUpperLeft
 if (sizes.width <= 1024) {
   sphereMiddle = new THREE.Mesh(sphereGeometryR4, mainMaterial)
-  torusUpperRight = new THREE.Mesh(torusGeometryThinR10, purpleMaterial)
+  torusUpperRight = new THREE.Mesh(torusGeometryThinR13, purpleMaterial)
   const torusLower = new THREE.Mesh(torusGeometryThinR2, blueMaterial)
   sphereMiddleLeft = new THREE.Mesh(sphereGeometryR2, blueMaterial)
-  sphereLowerRight = new THREE.Mesh(sphereGeometryR2, greenMaterial)
+  sphereLowerRight = new THREE.Mesh(sphereGeometryR1, greenMaterial)
   sphereUpperLeft = new THREE.Mesh(sphereGeometryR2, greenMaterial)
   torusLower.position.set(-7, -11, 0)
-  sphereMiddle.position.set(0, 1, 25)
+  sphereMiddle.position.set(0, 1, 20)
   sphereMiddleLeft.position.set(-13, 5, 0)
-  torusUpperRight.position.set(10, 2, 10)
-  sphereLowerRight.position.set(13, -13, -25)
+  torusUpperRight.position.set(13, 4, -20)
+  sphereLowerRight.position.set(6, -5, 20)
   sphereUpperLeft.position.set(-18, 26, -80)
   scene.add(torusLower)
   scene.add(sphereUpperLeft)
@@ -107,7 +109,9 @@ blueLight.position.set(-18, 5, 28)
 const purpleLight = new THREE.PointLight(0x901ff2, 1.5, 100)
 scene.add(purpleLight)
 purpleLight.position.set(10, 30, 30)
-
+if (sizes.width <= 1024) {
+  greenLight.position.z = 40
+}
 //* Camera
 // Base camera
 const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 200, 0)
