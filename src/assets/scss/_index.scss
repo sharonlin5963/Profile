@@ -1,11 +1,11 @@
 body {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 #about,
 #experience,
 #project,
-#contact{
+#contact {
   overflow: hidden;
   max-width: 1440px;
   margin: 0 auto;
@@ -62,7 +62,7 @@ header {
     }
   }
   h4 {
-    margin: .5rem;
+    margin: 0.5rem;
   }
   h4.chinese {
     display: none;
@@ -91,16 +91,17 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    .header, .body {
-      transition: background .5s;
+    .header,
+    .body {
+      transition: background 0.5s;
       width: 90%;
       max-width: 1080px;
-      box-shadow: 0 0 15px rgba($backend, .4);
-      background-color: rgba($text, .2);
+      box-shadow: 0 0 15px rgba($backend, 0.4);
+      background-color: rgba($text, 0.2);
     }
     .header {
       position: relative;
-      border-radius: .5rem .5rem .2rem .2rem;
+      border-radius: 0.5rem 0.5rem 0.2rem 0.2rem;
       height: 8vh;
     }
     .header .buttons {
@@ -114,18 +115,18 @@ header {
         width: 1.25rem;
         height: 1.25rem;
         border-radius: 20px;
-        box-shadow: 0 0 8px rgba($backend, .5);
+        box-shadow: 0 0 8px rgba($backend, 0.5);
       }
-      .button:nth-child(1){
+      .button:nth-child(1) {
         background-color: #fe5f59;
       }
-      .button:nth-child(2){
+      .button:nth-child(2) {
         background-color: #fbbf2c;
       }
-      .button:nth-child(3){
+      .button:nth-child(3) {
         background-color: #28ce3c;
       }
-    } 
+    }
     .body {
       margin-top: 2%;
       height: 80vh;
@@ -133,7 +134,7 @@ header {
       justify-content: center;
       z-index: 9;
       position: relative;
-      border-radius: .2rem .2rem .5rem .5rem;
+      border-radius: 0.2rem 0.2rem 0.5rem 0.5rem;
       .button {
         padding: 5px;
         display: none;
@@ -143,8 +144,8 @@ header {
     .searchBar {
       position: relative;
       width: 100%;
-      transition: .5s;
-      font-family: 'Baloo Tamma 2', cursive;
+      transition: 0.5s;
+      font-family: "Baloo Tamma 2", cursive;
       font-weight: normal;
       .mainTitle {
         position: absolute;
@@ -155,20 +156,19 @@ header {
         margin: 0;
         display: inline-block;
         width: 720px;
-        color: #FED766;
-        border-right: 3px solid #FED766;
+        color: #fed766;
+        border-right: 3px solid #fed766;
         letter-spacing: 1.5rem;
         white-space: nowrap;
         overflow: hidden;
         line-height: 9rem;
-        animation: typing 2.8s steps(7) infinite,
-        caret .4s steps(1) infinite;
+        animation: typing 2.8s steps(7) infinite, caret 0.4s steps(1) infinite;
       }
-      .subTitle{
+      .subTitle {
         position: absolute;
         left: 11%;
         bottom: 20%;
-        h4{
+        h4 {
           margin: 5px 0;
           font-size: 1.2rem;
         }
@@ -176,7 +176,7 @@ header {
     }
   }
   &.large > div {
-    transition: transform .5s;
+    transition: transform 0.5s;
     transform: scale(5);
     .webCase .header,
     .webCase .body {
@@ -222,16 +222,17 @@ header {
     width: 300px;
     margin-top: 80px;
     margin-left: 30px;
-    h4, p {
-      margin: .5rem 0;
+    h4,
+    p {
+      margin: 0.5rem 0;
     }
   }
 }
 #experience {
-  height: 300vh;
+  height: 450vh;
   background-color: $backend;
   color: $text;
-  transition: opacity .1s;
+  transition: opacity 0.1s;
   &.sticky {
     top: 0px;
     position: -webkit-sticky;
@@ -241,15 +242,15 @@ header {
     margin-top: 50px;
   }
   .timeLine {
-    width: 100vw;
+    width: 150vw;
     position: relative;
-    bottom: -180px;
+    bottom: -120px;
     #line {
       width: 0;
       border-top: 2px solid $text;
       transition: width 1.5s;
       &.extend {
-        width: 100vw;
+        width: 150vw;
       }
     }
     .works {
@@ -263,7 +264,7 @@ header {
         padding-left: 3%;
         padding-top: 2rem;
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: 0;
@@ -274,7 +275,7 @@ header {
           transform: translate(-50%, -50%);
         }
       }
-      & > .largeDot::before{
+      & > .largeDot::before {
         width: 15px;
         height: 15px;
       }
@@ -284,9 +285,9 @@ header {
         left: 0;
         transform: translateX(-50%);
       }
-    } 
+    }
   }
-  .title.fixed{
+  .title.fixed {
     position: fixed;
   }
 }
@@ -323,7 +324,7 @@ header {
       position: relative;
       top: 100px;
       opacity: 0;
-      transition: .5s;
+      transition: 0.5s;
       display: flex;
       align-items: center;
       margin: 80px 0;
@@ -333,12 +334,12 @@ header {
     video {
       width: 100%;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba($backend, .4);
+      box-shadow: 0 0 15px rgba($backend, 0.4);
     }
     .media {
       position: relative;
       width: 80%;
-      transition: .5s;
+      transition: 0.5s;
     }
     .media.large {
       width: 100%;
@@ -347,11 +348,11 @@ header {
     & > div:nth-child(even) {
       display: flex;
       justify-content: flex-end;
-      .info{
+      .info {
         left: 100px;
       }
     }
-    & > div:nth-child(odd) .info{
+    & > div:nth-child(odd) .info {
       right: 100px;
     }
     .info {
@@ -366,14 +367,19 @@ header {
       text-align: center;
       justify-content: center;
       flex-direction: column;
-      box-shadow: 0 0 15px rgba($backend, .4);
+      box-shadow: 0 0 15px rgba($backend, 0.4);
+
+      .container {
+        padding: 1.5rem;
+      }
     }
     img {
       width: 2.5rem;
       max-width: 36px;
       margin-bottom: -15px;
     }
-    h3, p {
+    h3,
+    p {
       position: relative;
       z-index: 8;
       color: $text;
@@ -402,7 +408,7 @@ header {
     margin-bottom: 1rem;
     margin-top: -1rem;
   }
-  .charactor{
+  .charactor {
     max-width: 500px;
     width: 80%;
   }
@@ -418,7 +424,7 @@ header {
   }
 }
 
-@keyframes paperPlane{
+@keyframes paperPlane {
   0% {
     transform: translate(-40px, 20px);
   }

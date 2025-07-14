@@ -133,11 +133,10 @@
     }
   }
   #experience {
-    height: 150vh;
+    height: 470vh;
   }
   #experience .timeLine  {
-    transform: translateX(0);
-    bottom: -50px;
+    transform: translate(-80px, -300px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -148,7 +147,7 @@
       border-left: 2px solid $text;
       transition: height 1s;
       &.extend {
-        height: 250px;
+        height: 670px;
         width: 80vw;
       }
     }
@@ -162,6 +161,9 @@
       & > div {
         width: 80vw;
         height: 250px;
+      }
+      & > .large {
+        height: 420px;
       }
       h4 {
         top: -15px;

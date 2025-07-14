@@ -15,10 +15,10 @@ body {
 
 a {
   text-decoration: none;
-  // color: $backendGray;
+  color: $primary;
   &:hover {
-      // color: $cyan;
-      text-decoration: none;
+    color: $primaryDark;
+    text-decoration: none;
   }
 }
 
