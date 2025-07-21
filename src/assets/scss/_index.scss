@@ -229,7 +229,8 @@ header {
   }
 }
 #experience {
-  height: 450vh;
+  height: 300vw;
+  max-height: 6000px;
   background-color: $backend;
   color: $text;
   transition: opacity 0.1s;
@@ -243,6 +244,7 @@ header {
   }
   .timeLine {
     width: 150vw;
+    max-width: 3000px;
     position: relative;
     bottom: -120px;
     #line {
@@ -251,6 +253,7 @@ header {
       transition: width 1.5s;
       &.extend {
         width: 150vw;
+        max-width: 3000px;
       }
     }
     .works {
@@ -260,6 +263,7 @@ header {
       display: flex;
       & > div {
         width: 50vw;
+        max-width: 1000px;
         position: relative;
         padding-left: 3%;
         padding-top: 2rem;

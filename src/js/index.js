@@ -104,17 +104,17 @@ window.onload = function () {
 
     const project = document.querySelector('#project')
     const projectTitle = document.querySelector('#project .title')
-    const rateData = {
-      jailulu: -70,
-      piano: -83,
-      pomodoro: -95
-    }
+    // const rateData = {
+    //   jailulu: -70,
+    //   piano: -83,
+    //   pomodoro: -95
+    // }
 
-    function upDownMoving (domName) {
-      const dom = document.querySelector(`#${domName} .info`)
-      const rate = (rateData[domName] > 0 ? scrolled * 0.015 : scrolled * -0.015) - rateData[domName]
-      dom.style.transform = `translateY(${rate}vh)`
-    }
+    // function upDownMoving (domName) {
+    //   const dom = document.querySelector(`#${domName} .info`)
+    //   const rate = (rateData[domName] > 0 ? scrolled * 0.015 : scrolled * -0.015) - rateData[domName]
+    //   dom.style.transform = `translateY(${rate}vh)`
+    // }
     function showInfo (domName) {
       const dom = document.querySelector(`#${domName}`)
       const domInfo = document.querySelector(`#${domName} .info`)
@@ -128,15 +128,18 @@ window.onload = function () {
     }
     // project
     timelineAnimate()
-    if (window.innerWidth > 1024) {
-      upDownMoving('jailulu')
-      upDownMoving('piano')
-      upDownMoving('pomodoro')
-    } else {
-      showInfo('jailulu')
-      showInfo('piano')
-      showInfo('pomodoro')
-    }
+    showInfo('jailulu')
+    showInfo('piano')
+    showInfo('pomodoro')
+    // if (window.innerWidth > 1024) {
+    //   upDownMoving('jailulu')
+    //   upDownMoving('piano')
+    //   upDownMoving('pomodoro')
+    // } else {
+    //   showInfo('jailulu')
+    //   showInfo('piano')
+    //   showInfo('pomodoro')
+    // }
 
     // #experience
     if (scrolled >= project.offsetTop - 300) {
